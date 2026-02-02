@@ -56,7 +56,7 @@ import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import { DataAnalysis, Connection, Warning, Grid, Refresh } from '@element-plus/icons-vue'
-import { syncStatus } from '@/api'
+import { getSyncStatus } from '@/api'
 
 const route = useRoute()
 const locale = ref(zhCn)
@@ -76,7 +76,7 @@ const pageTitle = computed(() => {
 const handleSync = async () => {
   syncing.value = true
   try {
-    await syncStatus()
+    await getSyncStatus()
     ElMessage.success('同步触发成功')
   } catch (error) {
     ElMessage.error('同步触发失败')
