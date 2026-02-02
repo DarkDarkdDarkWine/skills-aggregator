@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# 构建阶段
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -6,14 +7,14 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# 构建
+# 复制源代码并构建
 COPY . .
 RUN npm run build
 
 # 生产镜像
 FROM nginx:alpine
 
-COPY --from=0 /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
