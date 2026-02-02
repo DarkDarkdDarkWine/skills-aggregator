@@ -1,0 +1,50 @@
+# Skills Aggregator 配置文件
+
+# AI 配置
+ai:
+  active_provider: deepseek
+
+  providers:
+    deepseek:
+      api_key: ${DEEPSEEK_API_KEY}
+      base_url: https://api.deepseek.com/v1
+      model: deepseek-chat
+
+    siliconflow:
+      api_key: ${SILICONFLOW_API_KEY}
+      base_url: https://api.siliconflow.cn/v1
+      model: deepseek-ai/DeepSeek-V3
+
+  max_tokens: 4096
+  temperature: 0.1
+
+# 数据库配置
+database:
+  url: postgresql://skills_aggregator:skills2024@192.168.31.14:5433/skills_aggregator
+
+# 存储路径
+storage:
+  sources_dir: ./data/sources
+  output_dir: ./data/output
+  analysis_cache_dir: ./data/analysis
+
+# 输出配置
+output:
+  mode: single
+  paths:
+    primary: ./data/output/ready
+
+# 订阅源（初始为空，通过 API 管理）
+sources: []
+
+# 黑名单
+blacklist: []
+
+# 白名单（强制保留）
+whitelist: []
+
+# 状态 API 配置
+status_api:
+  include_ready_count: true
+  include_blocked_count: true
+  include_blocked_skills: false

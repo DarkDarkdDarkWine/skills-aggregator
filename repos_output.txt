@@ -1,0 +1,64 @@
+1. obra/superpowers
+   Name: obra/superpowers
+   Description: An agentic skills framework & software development methodology that works.
+   Stars: 42,430
+   Language: Shell
+
+2. k8sgpt-ai/k8sgpt
+   Name: k8sgpt-ai/k8sgpt
+   Description: Giving Kubernetes Superpowers to everyone
+   Stars: 7,366
+   Language: Go
+   Topics: kubernetes, devops, ai, tooling, openai, llama, sre
+
+3. wasp-lang/open-saas
+   Name: wasp-lang/open-saas
+   Description: A free, open-source SaaS app starter for React & Node.js with superpowers. Full-featured. Community-driven.
+   Stars: 13,326
+   Language: TypeScript
+   Topics: react, nodejs, open-source, boilerplate, typescript, ai, authentication, aws-s3, postgresql, saas, full-stack, typesafe, hacktoberfest, saas-template, prisma, google-auth, saas-boilerplate, saas-starter, openai-api, chatgpt
+
+4. krasimir/absurd
+   Name: krasimir/absurd
+   Description: A JavaScript library with superpowers
+   Stars: 1,376
+   Language: JavaScript
+
+5. sparklinlabs/superpowers-asset-packs
+   Name: sparklinlabs/superpowers-asset-packs
+   Description: CC0-licensed asset packs for your games
+   Stars: 1,210
+   Language: GLSL
+   Topics: video-games, assets, cc0, superpowers
+
+6. superpowers/superpowers-core
+   Name: superpowers/superpowers-core
+   Description: 🐙 Superpowers — Extensible HTML5 app for real-time collaborative projects
+   Stars: 2,086
+   Language: TypeScript
+
+7. iamgio/quarkdown
+   Name: iamgio/quarkdown
+   Description: 🪐 Markdown with superpowers: from ideas to papers, presentations, websites, books, and knowledge bases.
+   Stars: 9,988
+   Language: Kotlin
+   Topics: markdown, static-site-generator, pdf, compiler, markup, paper, slides, typesetting, scripting-language, presentations, markup-language, knowledge-management, typesetting-system
+
+8. anthonylee991/gemini-superpowers-antigravity
+   Name: anthonylee991/gemini-superpowers-antigravity
+   Description: Superpowers for Gemini's Antigravity (like Claude Superpowers)
+   Stars: 470
+   Language: Python
+
+9. k8sgpt-ai/k8sgpt-operator
+   Name: k8sgpt-ai/k8sgpt-operator
+   Description: Automatic SRE Superpowers within your Kubernetes cluster
+   Stars: 428
+   Language: Go
+   Topics: kubernetes, devops, tooling, openai, sre
+
+10. bakks/butterfish
+   Name: bakks/butterfish
+   Description: A shell with AI superpowers
+   Stars: 487
+   Language: Go

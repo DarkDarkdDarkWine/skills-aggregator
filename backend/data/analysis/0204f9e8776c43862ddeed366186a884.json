@@ -1,0 +1,20 @@
+{
+  "name": "test-skill",
+  "summary": "²âÊÔÕªÒª",
+  "description": "ÏêÏ¸ÃèÊö",
+  "use_cases": [
+    "³¡¾°1",
+    "³¡¾°2"
+  ],
+  "triggers": [
+    "test"
+  ],
+  "dependencies": {
+    "scripts": []
+  },
+  "quality_score": 85,
+  "quality_issues": [],
+  "tags": [
+    "test"
+  ]
+}
