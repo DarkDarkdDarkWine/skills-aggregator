@@ -28,8 +28,10 @@ services:
     container_name: skills-aggregator-frontend
     ports:
       - "3000:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
-      - VITE_API_BASE=http://192.168.31.14:8080
+      - VITE_API_BASE=http://host.docker.internal:8080
     restart: unless-stopped
     depends_on:
       - backend
