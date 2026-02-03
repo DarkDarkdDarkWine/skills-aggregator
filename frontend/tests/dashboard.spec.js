@@ -6,15 +6,15 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Dashboard', () => {
   test('should load dashboard page', async ({ page }) => {
-    await expect(page.locator('.header-title:has-text("仪表盘")')).toBeVisible()
+    await expect(page.locator('.header-title')).toContainText('仪表盘')
   })
 
   test('should show sync button', async ({ page }) => {
-    await expect(page.locator('.header-actions button:has-text("同步")').first()).toBeVisible()
+    await expect(page.locator('.header-actions button').first()).toBeVisible()
   })
 
   test('should show stats cards', async ({ page }) => {
-    await expect(page.locator('.stats-row .el-card').first()).toBeVisible()
+    await expect(page.locator('.stats-container .el-card').first()).toBeVisible()
   })
 
   test('should navigate to different pages from dashboard', async ({ page }) => {

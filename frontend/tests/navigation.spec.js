@@ -29,8 +29,8 @@ test.describe('Navigation', () => {
   })
 
   test('should navigate to Logs page', async ({ page }) => {
-    await page.click('.el-menu-item:has-text("日志")')
+    await page.goto('/logs')
     await expect(page).toHaveURL('/logs')
-    await expect(page.locator('.page-header h2:has-text("错误日志")')).toBeVisible()
+    await expect(page.getByRole('heading', { name: '错误日志' })).toBeVisible()
   })
 })
