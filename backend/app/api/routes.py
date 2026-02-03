@@ -8,7 +8,7 @@ from ..database import get_db
 from ..models import Source, Skill, Conflict, SkillAnalysis
 from ..services.sync import get_sync_service
 from ..services.github import get_github_service
-from ..main import log_buffer, log_buffer_lock
+from ..logger import log_buffer, log_buffer_lock
 
 router = APIRouter(prefix="/api", tags=["API"])
 
