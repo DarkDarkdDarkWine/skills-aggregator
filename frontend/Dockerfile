@@ -14,15 +14,9 @@ RUN npm run build
 # 生产镜像
 FROM nginx:alpine
 
-RUN apk add --no-cache netcat-openbsd
-
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-
-RUN chmod +x /docker-entrypoint.sh
+COPY nginx-simple.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

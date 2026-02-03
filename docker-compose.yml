@@ -25,12 +25,12 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      target: build
     container_name: skills-aggregator-frontend
     ports:
-      - "3000:80"
+      - "3000:3000"
     environment:
-      - VITE_API_BASE=/api
+      - VITE_API_BASE=http://192.168.31.14:8080
+    command: npm run dev -- --host
     restart: unless-stopped
     depends_on:
       - backend
