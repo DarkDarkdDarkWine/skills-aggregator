@@ -8,6 +8,7 @@ from ..database import get_db
 from ..models import Source, Skill, Conflict, SkillAnalysis
 from ..services.sync import get_sync_service
 from ..services.github import get_github_service
+from ..main import log_buffer, log_buffer_lock
 
 router = APIRouter(prefix="/api", tags=["API"])
 
@@ -345,3 +346,30 @@ async def get_metadata(db: AsyncSession = Depends(get_db)):
         "ready_count": ready_count,
         "blocked_count": blocked_count,
     }
+
+
+# ============ 日志 API ============
+
+
+class LogEntry(BaseModel):
+    timestamp: str
+    level: str
+    logger: str
+    message: str
+    exc_info: Optional[str] = None
+
+
+@router.get("/logs", response_model=List[LogEntry])
+async def get_logs(limit: int = Query(100, ge=1, le=1000)):
+    """获取错误日志"""
+    with log_buffer_lock:
+        logs = list(log_buffer)[-limit:]
+        return logs[::-1]  # 按时间倒序
+
+
+@router.delete("/logs")
+async def clear_logs():
+    """清空日志"""
+    with log_buffer_lock:
+        log_buffer.clear()
+    return {"message": "日志已清空"}

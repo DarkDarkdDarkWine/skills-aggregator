@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from collections import deque
+from datetime import datetime
 import logging
+import threading
 
 from .database import init_database, close_database
 from .api.routes import router as api_router
@@ -12,6 +15,29 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
 logger = logging.getLogger(__name__)
+
+# 内存日志缓冲区 (最大1000条)
+log_buffer = deque(maxlen=1000)
+log_buffer_lock = threading.Lock()
+
+
+class LogCapture(logging.Handler):
+    def emit(self, record: logging.LogRecord):
+        if record.levelno >= logging.ERROR:
+            with log_buffer_lock:
+                log_buffer.append(
+                    {
+                        "timestamp": datetime.utcnow().isoformat(),
+                        "level": record.levelname,
+                        "logger": record.name,
+                        "message": record.getMessage(),
+                        "exc_info": self.format(record) if record.exc_info else None,
+                    }
+                )
+
+
+log_handler = LogCapture()
+logging.getLogger().addHandler(log_handler)
 
 
 @asynccontextmanager

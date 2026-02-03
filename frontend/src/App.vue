@@ -28,6 +28,10 @@
             <el-icon><Grid /></el-icon>
             <span>Skills</span>
           </el-menu-item>
+          <el-menu-item index="/logs">
+            <el-icon><Document /></el-icon>
+            <span>日志</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       
@@ -55,7 +59,7 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import { DataAnalysis, Connection, Warning, Grid, Refresh } from '@element-plus/icons-vue'
+import { DataAnalysis, Connection, Warning, Grid, Refresh, Document } from '@element-plus/icons-vue'
 import { getSyncStatus } from '@/api'
 
 const route = useRoute()

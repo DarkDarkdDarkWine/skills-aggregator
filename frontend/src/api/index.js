@@ -41,3 +41,8 @@ export const getMetadata = () => api.get('/metadata')
 
 // 下载
 export const downloadSkills = (scope = 'ready') => api.get('/download', { params: { scope } })
+
+// 日志
+export const getLogs = (limit = 100) => api.get('/logs', { params: { limit } })
+
+export const clearLogs = () => api.delete('/logs')
