@@ -14,7 +14,8 @@ RUN npm run build
 # 生产镜像
 FROM nginx:alpine
 
-RUN rm -rf /docker-entrypoint.d/ /usr/share/nginx/html/*.sh 2>/dev/null || true
+RUN rm -rf /docker-entrypoint.d/ /usr/share/nginx/html/*.sh 2>/dev/null || true && \
+    chmod -R 755 /usr/share/nginx/html/
 
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx-simple.conf /etc/nginx/conf.d/default.conf
