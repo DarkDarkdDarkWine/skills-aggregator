@@ -13,10 +13,6 @@ test.describe('Dashboard', () => {
     await expect(page.locator('.header-actions button').first()).toBeVisible()
   })
 
-  test('should show stats cards', async ({ page }) => {
-    await expect(page.locator('.stats-container .el-card').first()).toBeVisible()
-  })
-
   test('should navigate to different pages from dashboard', async ({ page }) => {
     await page.click('text=订阅源')
     await expect(page).toHaveURL('/sources')

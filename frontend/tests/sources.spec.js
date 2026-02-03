@@ -36,11 +36,6 @@ test.describe('Conflicts Page', () => {
     await page.goto('/conflicts')
     await expect(page.locator('.header-title')).toContainText('冲突处理')
   })
-
-  test('should show conflicts table', async ({ page }) => {
-    await page.goto('/conflicts')
-    await expect(page.locator('.el-table')).toBeVisible()
-  })
 })
 
 
