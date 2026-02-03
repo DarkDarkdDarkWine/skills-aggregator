@@ -14,9 +14,14 @@ RUN npm run build
 # 生产镜像
 FROM nginx:alpine
 
+RUN rm -rf /docker-entrypoint.d/ /usr/share/nginx/html/*.sh 2>/dev/null || true
+
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx-simple.conf /etc/nginx/conf.d/default.conf
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/start.sh"]
