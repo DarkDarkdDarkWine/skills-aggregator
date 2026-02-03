@@ -29,3 +29,29 @@ test.describe('Sources Page', () => {
     await expect(page.locator('.el-dialog')).not.toBeVisible()
   })
 })
+
+
+test.describe('Conflicts Page', () => {
+  test('should load conflicts page', async ({ page }) => {
+    await page.goto('/conflicts')
+    await expect(page.locator('.header-title')).toContainText('冲突处理')
+  })
+
+  test('should show conflicts table', async ({ page }) => {
+    await page.goto('/conflicts')
+    await expect(page.locator('.el-table')).toBeVisible()
+  })
+})
+
+
+test.describe('Skills Page', () => {
+  test('should load skills page', async ({ page }) => {
+    await page.goto('/skills')
+    await expect(page.locator('.header-title')).toContainText('Skills 列表')
+  })
+
+  test('should show skills table', async ({ page }) => {
+    await page.goto('/skills')
+    await expect(page.locator('.el-table')).toBeVisible()
+  })
+})
